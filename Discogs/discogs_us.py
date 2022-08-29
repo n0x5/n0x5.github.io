@@ -17,7 +17,7 @@ cur2 = conn2.cursor()
 cur2.execute('''CREATE TABLE if not exists discogs_{}
         (rel_date text, label text, title text, genres text, styles text, format_name text, artist_name text, catno text, track_p text, master_id text unique, dated datetime DEFAULT CURRENT_TIMESTAMP)''' .format(ins_country))
 
-results = cur.execute("select min(released), label_name, title, genres, styles, format_name, artist_name, catno, track_p, master_id from releases where label_name not like 'Not On Label' and label_name not like '%Self-released%' and track_p not like 'None' and released not like 'None' and country like '{}' group by release_id order by released asc" .format(ins_country))
+results = cur.execute("select min(released), label_name, title, genres, styles, format_name, artist_name, catno, track_p, master_id from releases where label_name not like 'Not On Label' and label_name not like '%Self-released%' and released not like 'None' and country like '{}' group by release_id order by released asc" .format(ins_country))
 
 lst = []
 for item in tqdm(results):
