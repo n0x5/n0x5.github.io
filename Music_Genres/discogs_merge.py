@@ -33,3 +33,6 @@ for item in tqdm(results):
         cur2.connection.commit()
         lst = []
 
+cur2.executemany('insert or ignore into discogs_merge (release_id, title, format_name, artist_id, label_name, \
+                        catno, country, genres, styles, released, track_p, master_id, artist_name, descriptions) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)', (lst))
+cur2.connection.commit()

@@ -143,9 +143,12 @@ for event, elem in tqdm(context):
         cur.connection.commit()
         lst = []
 
-
     elem.clear()
     for ancestor in elem.xpath('ancestor-or-self::*'):
         while ancestor.getprevious() is not None:
             del ancestor.getparent()[0]
 del context
+
+cur.executemany('insert or ignore into releases (release_id, title, format_name, artist_id, label_name, \
+                        catno, country, genres, styles, released, track_p, master_id, artist_name, descriptions) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)', (lst))
+cur.connection.commit()
