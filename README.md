@@ -1,5 +1,3 @@
-# n0x5.github.io
-
 ## PyPI
 
 https://n0x5.github.io/PyPI_Stats/internet.html
