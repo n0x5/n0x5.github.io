@@ -27,7 +27,7 @@ https://n0x5.github.io/Music_Genres/Major_Labels_Classical_US.html
 
 https://n0x5.github.io/Music_Genres/Major_Labels_Folk_World_US.html
 
-### Misc
+
 
 https://n0x5.github.io/Music_Genres/DVD_US.html
 
