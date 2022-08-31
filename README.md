@@ -36,3 +36,7 @@ https://n0x5.github.io/Music_Genres/Blu-ray_US.html
 https://n0x5.github.io/Music_Genres/NuMetal_Major.html
 
 https://n0x5.github.io/Music_Genres/NuMetal_Indie.html
+
+## Sqlite database:
+
+https://github.com/n0x5/n0x5.github.io/releases/tag/Discogs_Releases_Database_2022-08_COMPLETE
