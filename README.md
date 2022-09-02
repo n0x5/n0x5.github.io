@@ -49,9 +49,9 @@ https://n0x5.github.io/Discogs_HTML/Indie_Labels/Screen_Discogs_US_Indie_CD.html
 
 ## Miscellaneous
 
-https://n0x5.github.io/Discogs_HTML/Major_Labels/Miscellaneous/Discogs_US_Blu-ray.html
+https://n0x5.github.io/Discogs_HTML/Miscellaneous/Discogs_US_Blu-ray.html
 
-https://n0x5.github.io/Discogs_HTML/Major_Labels/Miscellaneous/Discogs_US_DVD.html
+https://n0x5.github.io/Discogs_HTML/Miscellaneous/Discogs_US_DVD.html
 
 https://n0x5.github.io/Discogs_HTML/Miscellaneous/NuMetal_Indie.html
 
