@@ -19,7 +19,7 @@ https://n0x5.github.io/Discogs_HTML/Major_Labels/Electronic_Discogs_US_Major_CD.
 
 https://n0x5.github.io/Discogs_HTML/Major_Labels/Folk_Discogs_US_Major_CD.html
 
-https://n0x5.github.io/Discogs_HTML/Major_Labels/Hip Hop_Discogs_US_Major_CD.html
+https://n0x5.github.io/Discogs_HTML/Major_Labels/Hip%20Hop_Discogs_US_Major_CD.html
 
 https://n0x5.github.io/Discogs_HTML/Major_Labels/Pop_Discogs_US_Major_CD.html
 
@@ -38,7 +38,7 @@ https://n0x5.github.io/Discogs_HTML/Indie_Labels/Electronic_Discogs_US_Indie_CD.
 
 https://n0x5.github.io/Discogs_HTML/Indie_Labels/Folk_Discogs_US_Indie_CD.html
 
-https://n0x5.github.io/Discogs_HTML/Indie_Labels/Hip Hop_Discogs_US_Indie_CD.html
+https://n0x5.github.io/Discogs_HTML/Indie_Labels/Hip%20Hop_Discogs_US_Indie_CD.html
 
 https://n0x5.github.io/Discogs_HTML/Indie_Labels/Pop_Discogs_US_Indie_CD.html
 
