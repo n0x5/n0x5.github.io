@@ -4,19 +4,13 @@ import sqlite3
 import requests
 import json
 import argparse
-
+import os
+import time
 
 token = ''
 
-parser = argparse.ArgumentParser()
-parser.add_argument('genre')
-parser.add_argument('page')
-args = parser.parse_args()
 
-genre = args.genre
-page = args.page
-
-sql_db = 'discogs_api.db'
+sql_db = os.path.join(os.path.dirname( __file__ ), '..', 'databases', 'discogs_api.db')
 conn = sqlite3.connect(sql_db)
 cur = conn.cursor()
 cur.execute('''CREATE TABLE if not exists discogs_api
@@ -28,18 +22,30 @@ headers = {
 'User-Agent': 'CUSTOM USER AGENT'
 }
 
-url = 'https://api.discogs.com/database/search?year=2022&format=cd,album&genre={}&country=us&token={}&type=release&per_page=100&page={}' .format(genre, token, page)
+def get_rels(page, url):
+    print(url)
+    response = requests.get(url, headers=headers)
+    data = json.loads(response.text)
+    pages = data['pagination']['pages']
+    for item in data['results']:
+        artist = item['title'].split(' - ')[0]
+        title_final = item['title'].split(' - ')[1]
+        stuff = artist, title_final, item['year'], ', '.join(item['genre']), ', '.join(item['style']), \
+                    item['country'], item['master_id'], item['catno'], ', '.join(item['format']), item['id'], item['cover_image'], ', '.join(item['label'])
+        print(stuff)
+        cur.execute('insert or ignore into discogs_api (artist, title, year, genres, styles, country, master_id, catno, \
+                     format, id, cover_image, label) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', (stuff))
+        cur.connection.commit()
 
-response = requests.get(url, headers=headers)
+    print('page {} / {}' .format(page, pages))
+    page += 1
+    time.sleep(2)
+    if page <= pages:
+        url = 'https://api.discogs.com/database/search?year=2021&format=cd,album&country=us&token={}&type=release&per_page=100&page={}' .format(token, page)
+        get_rels(page, url)
 
-data = json.loads(response.text)
+page = 1
+url = 'https://api.discogs.com/database/search?year=2021&format=cd,album&country=us&token={}&type=release&per_page=100&page={}' .format(token, page)
+get_rels(page, url)
 
-for item in data['results']:
-    artist = item['title'].split(' - ')[0]
-    title_final = item['title'].split(' - ')[1]
-    stuff = artist, title_final, item['year'], ', '.join(item['genre']), ', '.join(item['style']), \
-                item['country'], item['master_id'], item['catno'], ', '.join(item['format']), item['id'], item['cover_image'], ', '.join(item['label'])
-    print(stuff)
-    cur.execute('insert or ignore into discogs_api (artist, title, year, genres, styles, country, master_id, catno, \
-                 format, id, cover_image, label) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)', (stuff))
-    cur.connection.commit()
+
