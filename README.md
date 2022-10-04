@@ -8,10 +8,14 @@ https://n0x5.github.io/Theatrical_Movie_Releases/list_all_wide.html
 
 https://n0x5.github.io/Theatrical_Movie_Releases/list_all_limited.html
 
+## Movie stats/plots
+
+https://n0x5.github.io/Boxoffice_Stats/Genres/index.html
+https://n0x5.github.io/Boxoffice_Stats/Subgenres/index.html
 
 ## Music
 
-## Major labels
+### Major labels
 
 https://n0x5.github.io/Discogs_HTML/Major_Labels/Classical_Discogs_US_Major_CD.html
 
@@ -29,7 +33,7 @@ https://n0x5.github.io/Discogs_HTML/Major_Labels/Screen_Discogs_US_Major_CD.html
 
 
 
-## Indie labels
+### Indie labels
 
 
 https://n0x5.github.io/Discogs_HTML/Indie_Labels/Classical_Discogs_US_Indie_CD.html
