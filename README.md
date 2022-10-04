@@ -11,6 +11,7 @@ https://n0x5.github.io/Theatrical_Movie_Releases/list_all_limited.html
 ## Movie stats/plots
 
 https://n0x5.github.io/Boxoffice_Stats/Genres/index.html
+
 https://n0x5.github.io/Boxoffice_Stats/Subgenres/index.html
 
 ## Music
