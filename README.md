@@ -16,7 +16,7 @@ https://n0x5.github.io/Boxoffice_Stats/Subgenres/index.html
 
 # Music
 
-## Major labels
+### Major labels
 
 https://n0x5.github.io/Discogs_HTML/Major_Labels/Classical_Discogs_US_Major_CD.html
 
@@ -34,7 +34,7 @@ https://n0x5.github.io/Discogs_HTML/Major_Labels/Screen_Discogs_US_Major_CD.html
 
 
 
-## Indie labels
+### Indie labels
 
 
 https://n0x5.github.io/Discogs_HTML/Indie_Labels/Classical_Discogs_US_Indie_CD.html
@@ -240,7 +240,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Minor/2020s/202_Screen_Discogs_US_I
 
 
 
-## Miscellaneous
+### Miscellaneous
 
 https://n0x5.github.io/Discogs_HTML/Miscellaneous/Discogs_US_Blu-ray.html
 
@@ -250,6 +250,6 @@ https://n0x5.github.io/Discogs_HTML/Miscellaneous/NuMetal_Indie.html
 
 https://n0x5.github.io/Discogs_HTML/Miscellaneous/NuMetal_Major.html
 
-## Sqlite database:
+### Sqlite database:
 
 https://github.com/n0x5/n0x5.github.io/releases/tag/Discogs_Releases_Database_2022-08_COMPLETE
