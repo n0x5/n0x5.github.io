@@ -67,7 +67,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Major/1980s/198_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/1980s/198_Folk_Discogs_US_Major_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Major/1980s/198_Hip Hop_Discogs_US_Major_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Major/1980s/198_Hip%20Hop_Discogs_US_Major_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/1980s/198_Pop_Discogs_US_Major_CD.html
 
@@ -85,7 +85,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Major/1990s/199_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/1990s/199_Folk_Discogs_US_Major_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Major/1990s/199_Hip Hop_Discogs_US_Major_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Major/1990s/199_Hip%20Hop_Discogs_US_Major_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/1990s/199_Pop_Discogs_US_Major_CD.html
 
@@ -103,7 +103,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Major/2000s/200_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/2000s/200_Folk_Discogs_US_Major_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Major/2000s/200_Hip Hop_Discogs_US_Major_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Major/2000s/200_Hip%20Hop_Discogs_US_Major_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/2000s/200_Pop_Discogs_US_Major_CD.html
 
@@ -121,7 +121,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Major/2010s/201_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/2010s/201_Folk_Discogs_US_Major_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Major/2010s/201_Hip Hop_Discogs_US_Major_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Major/2010s/201_Hip%20Hop_Discogs_US_Major_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/2010s/201_Pop_Discogs_US_Major_CD.html
 
@@ -137,7 +137,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Major/2020s/202_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/2020s/202_Folk_Discogs_US_Major_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Major/2020s/202_Hip Hop_Discogs_US_Major_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Major/2020s/202_Hip%20Hop_Discogs_US_Major_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Major/2020s/202_Pop_Discogs_US_Major_CD.html
 
@@ -158,7 +158,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Minor/1980s/198_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/1980s/198_Folk_Discogs_US_Indie_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Minor/1980s/198_Hip Hop_Discogs_US_Indie_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Minor/1980s/198_Hip%20Hop_Discogs_US_Indie_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/1980s/198_Pop_Discogs_US_Indie_CD.html
 
@@ -176,7 +176,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Minor/1990s/199_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/1990s/199_Folk_Discogs_US_Indie_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Minor/1990s/199_Hip Hop_Discogs_US_Indie_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Minor/1990s/199_Hip%20Hop_Discogs_US_Indie_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/1990s/199_Pop_Discogs_US_Indie_CD.html
 
@@ -194,7 +194,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Minor/2000s/200_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/2000s/200_Folk_Discogs_US_Indie_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Minor/2000s/200_Hip Hop_Discogs_US_Indie_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Minor/2000s/200_Hip%20Hop_Discogs_US_Indie_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/2000s/200_Pop_Discogs_US_Indie_CD.html
 
@@ -212,7 +212,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Minor/2010s/201_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/2010s/201_Folk_Discogs_US_Indie_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Minor/2010s/201_Hip Hop_Discogs_US_Indie_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Minor/2010s/201_Hip%20Hop_Discogs_US_Indie_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/2010s/201_Pop_Discogs_US_Indie_CD.html
 
@@ -230,7 +230,7 @@ https://n0x5.github.io/Discogs_HTML//Decades_Minor/2020s/202_Electronic_Discogs_
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/2020s/202_Folk_Discogs_US_Indie_CD.html
 
-https://n0x5.github.io/Discogs_HTML//Decades_Minor/2020s/202_Hip Hop_Discogs_US_Indie_CD.html
+https://n0x5.github.io/Discogs_HTML//Decades_Minor/2020s/202_Hip%20Hop_Discogs_US_Indie_CD.html
 
 https://n0x5.github.io/Discogs_HTML//Decades_Minor/2020s/202_Pop_Discogs_US_Indie_CD.html
 
