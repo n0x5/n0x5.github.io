@@ -3,7 +3,7 @@ import sqlite3
 from tqdm import tqdm
 import re
 
-conn_new = sqlite3.connect('Discogs_Releases_Database_2022-09_COMPLETE.db')
+conn_new = sqlite3.connect('Discogs_Releases_Database_2022-10_COMPLETE.db')
 cur_new = conn_new.cursor()
 
 sections = ['Screen', 'Classical', 'Folk', 'Hip Hop', 'Pop', 'Electronic', 'Rock']
@@ -29,8 +29,9 @@ for section in sections:
             or label_name like 'Deutsche Grammophon' or label_name like 'Decca' or label_name like 'Var&#232;se Sarabande%' \
             or label_name like 'ECM Records' or label_name like 'Ariola' or label_name like 'Walt Disney Records' \
             or label_name like 'Milan' or label_name like 'Def Jam Recordings'  \
-            or label_name like 'Parlophone' or label_name like 'Mute' or label_name like 'WaterTower Music') \
-                 group by master_id order by released desc" .format(section.lower()))]
+            or label_name like 'Parlophone' or label_name like 'Mute' or label_name like 'WaterTower Music' or label_name like 'UMe' \
+            or label_name like 'T-Boy Records' or label_name like 'Verve Records' or label_name like 'Verve Forecast') \
+            group by master_id order by released desc" .format(section.lower()))]
 
     with open('{}_Discogs_US_Major_CD.html' .format(section), 'w', encoding='utf8') as log_file:
         log_file.write('<style>table, th, td {border: 1px solid;border-collapse:collapse;padding:4px;}a {text-decoration:none;}</style>')
@@ -68,8 +69,9 @@ for section in sections:
             and label_name not like 'Deutsche Grammophon' and label_name not like 'Decca' and label_name not like '%Sarabande' \
             and label_name not like 'ECM Records' and label_name not like 'Ariola' and label_name not like 'Walt Disney Records' \
             and label_name not like 'Milan' and label_name not like 'Def Jam Recordings' \
-            and label_name not like 'Parlophone' and label_name not like 'Mute' and label_name not like 'WaterTower Music') \
-                 group by master_id order by released desc" .format(section.lower()))]
+            and label_name not like 'Parlophone' and label_name not like 'Mute' and label_name not like 'WaterTower Music' and label_name not like 'UMe' \
+            and label_name not like 'T-Boy Records' and label_name not like 'Verve Records' and label_name not like 'Verve Forecast') \
+            group by master_id order by released desc" .format(section.lower()))]
 
     with open('{}_Discogs_US_Indie_CD.html' .format(section), 'w', encoding='utf8') as log_file:
         log_file.write('<style>table, th, td {border: 1px solid;border-collapse:collapse;padding:4px;}a {text-decoration:none;}</style>')
