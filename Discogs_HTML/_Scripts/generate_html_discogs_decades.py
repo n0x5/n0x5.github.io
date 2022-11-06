@@ -3,7 +3,7 @@ import sqlite3
 from tqdm import tqdm
 import re
 
-conn_new = sqlite3.connect('Discogs_Releases_Database_2022-10_COMPLETE.db')
+conn_new = sqlite3.connect('Discogs_Releases_Database_2022-11_COMPLETE_CD_ONLY.db')
 cur_new = conn_new.cursor()
 
 sections = ['Screen', 'Classical', 'Folk', 'Hip Hop', 'Pop', 'Electronic', 'Rock']
@@ -38,7 +38,7 @@ for year in decades:
                 or label_name like 'Sanctuary Records' or label_name like 'Shrapnel Records' or label_name like 'The Rocket Record Company') \
                 group by master_id order by released desc" .format(year, section.lower()))]
 
-        with open('{}_{}_Discogs_US_Major_CD.html' .format(year, section), 'w', encoding='utf8') as log_file:
+        with open('{}0s_{}_Discogs_US_Major_CD.html' .format(year, section), 'w', encoding='utf8') as log_file:
             log_file.write('<style>table, th, td {border: 1px solid;border-collapse:collapse;padding:4px;}a {text-decoration:none;}</style>')
             log_file.write('<h1>List of Discogs {} releases</h1>' .format(section))
             log_file.write('<table>')
@@ -82,7 +82,7 @@ for year in decades:
                 and label_name not like 'Sanctuary Records' and label_name not like 'Shrapnel Records' and label_name not like 'The Rocket Record Company') \
                 group by master_id order by released desc" .format(year, section.lower()))]
 
-        with open('{}_{}_Discogs_US_Indie_CD.html' .format(year, section), 'w', encoding='utf8') as log_file:
+        with open('{}0s_{}_Discogs_US_Indie_CD.html' .format(year, section), 'w', encoding='utf8') as log_file:
             log_file.write('<style>table, th, td {border: 1px solid;border-collapse:collapse;padding:4px;}a {text-decoration:none;}</style>')
             log_file.write('<h1>List of Discogs {} releases</h1>' .format(section))
             log_file.write('<table>')
