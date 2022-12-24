@@ -3,7 +3,7 @@ import sqlite3
 from tqdm import tqdm
 import re
 
-conn_new = sqlite3.connect('Discogs_Releases_Database_2022-11_COMPLETE_CD_ONLY.db')
+conn_new = sqlite3.connect('Discogs_Releases_Database_2022-12_COMPLETE_CD_ONLY.db')
 cur_new = conn_new.cursor()
 
 sections = ['Screen', 'Classical', 'Folk', 'Hip Hop', 'Pop', 'Electronic', 'Rock']
