@@ -7,7 +7,7 @@ import sqlite3
 from lxml import etree
 import time
 
-sql_db = os.path.join(os.path.dirname( __file__ ), 'Discogs_Releases_Database_2022-12_COMPLETE_CD_ONLY1.db')
+sql_db = os.path.join(os.path.dirname( __file__ ), 'Discogs_Releases_Database_2023-06_COMPLETE_CD_ONLY.db')
 conn = sqlite3.connect(sql_db)
 cur = conn.cursor()
 cur.execute('''CREATE TABLE if not exists releases \
@@ -16,7 +16,7 @@ cur.execute('''CREATE TABLE if not exists releases \
         descriptions text)''')
 
 
-xmlfile = 'discogs_20221201_releases.xml'
+xmlfile = 'discogs_20230801_releases.xml'
 
 context = etree.iterparse(xmlfile, tag='release')
 lst = []
@@ -136,9 +136,10 @@ for event, elem in tqdm(context):
         
     stuff = str(release.group(1)), str(title), str(format_name), str(''.join(art_lst)), str(label_name), str(catno),\
              str(country), str(', '.join(genres)), str(', '.join(styles)), str(released), str(''.join(track_p)), master, art_name, ', '.join(descs)
-    if 'CD' in str(format_name) and 'US' in country:
+    if 'CD' in str(format_name) and 'US' in str(country):
         lst.append(stuff)
     if len(lst) == 2000:
+        print(lst)
         cur.executemany('insert or ignore into releases (release_id, title, format_name, artist_id, label_name, \
                         catno, country, genres, styles, released, track_p, master_id, artist_name, descriptions) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)', (lst))
         cur.connection.commit()
