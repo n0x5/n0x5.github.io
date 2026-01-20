@@ -1,157 +1,135 @@
-# Create complete list of all versions of releases
+# Create complete list of all versions of releases (FINAL – EXACT MATCH)
 
 import os
-import re
-from tqdm import tqdm
 import sqlite3
 from lxml import etree
-import time
+from tqdm import tqdm
 
-sql_db = os.path.join(os.path.dirname( __file__ ), 'Discogs_Releases_Database_2023-06_COMPLETE_CD_ONLY.db')
+sql_db = os.path.join(
+    os.path.dirname(__file__),
+    'Discogs_Releases_Database_2026_01_COMPLETE_CD_ONLY.db'
+)
+
 conn = sqlite3.connect(sql_db)
 cur = conn.cursor()
-cur.execute('''CREATE TABLE if not exists releases \
-        (release_id text unique, title text, format_name text, artist_id text, label_name text, \
-        catno text, country text, genres text, styles text, released text, track_p text, master_id text, artist_name text, \
-        descriptions text)''')
 
+cur.execute("PRAGMA journal_mode=WAL")
+cur.execute("PRAGMA synchronous=NORMAL")
 
-xmlfile = 'discogs_20230801_releases.xml'
+cur.execute("""
+CREATE TABLE IF NOT EXISTS releases (
+    release_id TEXT UNIQUE,
+    title TEXT,
+    format_name TEXT,
+    artist_id TEXT,
+    label_name TEXT,
+    catno TEXT,
+    country TEXT,
+    genres TEXT,
+    styles TEXT,
+    released TEXT,
+    track_p TEXT,
+    master_id TEXT,
+    artist_name TEXT,
+    descriptions TEXT
+)
+""")
 
+xmlfile = 'discogs_20260101_releases.xml'
 context = etree.iterparse(xmlfile, tag='release')
-lst = []
 
-for event, elem in tqdm(context):
-    tree = etree.tostring(elem, encoding='UTF-8').decode()
-    release = re.search(r'<release id="(\d+)" status="(.+?)">', tree)
-    try:
-        country = re.search(r'<country>(.+?)<\/country>', tree)
-        country = country.group(1)
-    except:
-        country = ''
-    try:
-        label = re.search(r'<label name="(.+?)" catno="(.+?)" id="(.+?)"\/>', tree)
-        try:
-            label_name = label.group(1)
-        except:
-            label_name = ''
-        try:
-            catno = label.group(2)
-        except:
-            catno = ''
-        try:
-            label_id = label.group(3)
-        except:
-            label_id = ''
-    except:
-        label = ''
-    try:
-        genres = re.findall(r'<genre>(.+?)<\/genre>', tree)
-    except:
-        genres = ''
-    try:
-        styles = re.findall(r'<style>(.+?)<\/style>', tree)
-    except:
-        styles = ''
-    try:
-        year = re.search(r'<year>(.+?)<\/year>', tree)
-        year = year.group(1)
-    except:
-        year = ''
-    try:
-        title = re.search(r'<title>(.+?)<\/title>', tree)
-        title = title.group(1)
-    except:
-        title = ''
-    try:
-        data_quality = re.search(r'<data_quality>(.+?)<\/data_quality>', tree)
-        data_quality = data_quality.group(1)
-    except:
-        data_quality = ''
-    try:
-        formats = re.search(r'<format name="(.+?)" qty="(\d{0,5}?)"', tree)
-        try:
-            format_name = formats.group(1)
-        except:
-            format_name = ''
-        try:
-            format_qty = formats.group(2)
-        except:
-            format_qty = ''
-    except:
-        formats = ''
-    try:
-        released = re.search(r'<released>(.+?)<\/released>', tree)
-        released = released.group(1)
-    except:
-        released = ''
-    try:
-        notes = re.search(r'<notes>(.+?)<\/notes>', tree)
-        notes = notes.group(1)
-    except:
-        notes = ''
-    master_id = re.search(r'<master_id.+">(.+?)<\/master_id>', tree)
-    try:
-        master = master_id.group(1)
-    except:
-        master = ''
-    artist_id = re.findall(r'<artist><id>(.+?)<\/id><name>(.+?)<\/name>', tree)
-    art_lst = []
-    for artis1 in artist_id:
-        try:
-            artis1 = artis1[0]+' '+artis1[1]+'\n'
-            art_lst.append(artis1)
-        except:
-            artis1 = ''
-    try:
-        art_name = str(''.join(art_lst)).split('\n')[0]
-        art_name = re.sub('^\d+ ', '', art_name)
-    except:
-        art_name = ''
-    try:
-        tracklist = re.search(r'<tracklist>(.+?)<\/tracklist>', tree)
-        tracks = re.findall(r'<track>(.+?)<\/track>', str(tracklist.group(1)))
-        track_p = []
-        for item9 in tracks:
-            try:
-                position = re.search(r'<position>(.+?)<\/position>', str(item9))
-                track_title = re.search(r'<title>(.+?)<\/title>', str(item9))
-                duration = re.search(r'<duration>(.+?)<\/duration>', str(item9))
-                track_a = position.group(1)+' '+track_title.group(1)+' '+duration.group(1)+'\n'
-                track_p.append(track_a)
-            except:
-                track_p = ''
+batch = []
+BATCH_SIZE = 2000
 
-    except:
-        tracklist = ''
-    try:
-        descs = re.search(r'<descriptions>(.+?)<\/descriptions>', tree)
-        descs = descs.group(1)
-        try:
-            descs = re.findall(r'<description>(.+?)<\/description>', str(descs))
-        except:
-            descs = ''
-    except:
-        descs = ''
-        
-    stuff = str(release.group(1)), str(title), str(format_name), str(''.join(art_lst)), str(label_name), str(catno),\
-             str(country), str(', '.join(genres)), str(', '.join(styles)), str(released), str(''.join(track_p)), master, art_name, ', '.join(descs)
-    if 'CD' in str(format_name) and 'US' in str(country):
-        lst.append(stuff)
-    if len(lst) == 2000:
-        print(lst)
-        cur.executemany('insert or ignore into releases (release_id, title, format_name, artist_id, label_name, \
-                        catno, country, genres, styles, released, track_p, master_id, artist_name, descriptions) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)', (lst))
-        cur.connection.commit()
-        lst = []
+with conn:
+    for _, elem in tqdm(context):
 
-    elem.clear()
-    for ancestor in elem.xpath('ancestor-or-self::*'):
-        while ancestor.getprevious() is not None:
-            del ancestor.getparent()[0]
+        release_id = elem.get("id")
+        country = elem.findtext("country", "")
+
+        if "US" not in country:
+            elem.clear()
+            continue
+
+        formats = elem.findall("formats/format")
+
+        is_cd = False
+        format_name = ""
+
+        for f in formats:
+            name = f.get("name", "")
+            if "CD" in name:
+                is_cd = True
+                format_name = name
+                break
+
+        if not is_cd:
+            elem.clear()
+            continue
+
+        title = elem.findtext("title", "")
+        released = elem.findtext("released", "")
+        master_id = elem.findtext("master_id", "")
+
+        label_el = elem.find("labels/label")
+        label_name = label_el.get("name", "") if label_el is not None else ""
+        catno = label_el.get("catno", "") if label_el is not None else ""
+
+        genres = ", ".join(g.text for g in elem.findall("genres/genre") if g.text)
+        styles = ", ".join(s.text for s in elem.findall("styles/style") if s.text)
+
+        artist_entries = []
+        for artist in elem.findall("artists/artist"):
+            aid = artist.findtext("id", "")
+            aname = artist.findtext("name", "")
+            if aid or aname:
+                artist_entries.append(f"{aid} {aname}")
+
+        artist_id = "\n".join(artist_entries)
+        artist_name = artist_entries[0].split(" ", 1)[-1] if artist_entries else ""
+
+        track_lines = []
+        for track in elem.findall("tracklist/track"):
+            pos = track.findtext("position", "")
+            ttitle = track.findtext("title", "")
+            dur = track.findtext("duration", "")
+            if pos or ttitle or dur:
+                track_lines.append(f"{pos} {ttitle} {dur}")
+
+        track_p = "\n".join(track_lines)
+
+
+
+        descriptions_list = []
+
+        for f in elem.findall("formats/format"):
+            for d in f.findall("descriptions/description"):
+                if d.text:
+                    descriptions_list.append(d.text)
+
+        descriptions = ", ".join(descriptions_list)
+
+        batch.append((
+            release_id, title, format_name, artist_id, label_name, catno,
+            country, genres, styles, released, track_p,
+            master_id, artist_name, descriptions
+        ))
+
+        if len(batch) >= BATCH_SIZE:
+            cur.executemany("""
+                INSERT OR IGNORE INTO releases VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """, batch)
+            batch.clear()
+
+        elem.clear()
+        while elem.getprevious() is not None:
+            del elem.getparent()[0]
+
+    if batch:
+        cur.executemany("""
+            INSERT OR IGNORE INTO releases VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        """, batch)
+
 del context
-
-cur.executemany('insert or ignore into releases (release_id, title, format_name, artist_id, label_name, \
-                        catno, country, genres, styles, released, track_p, master_id, artist_name, descriptions) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)', (lst))
-cur.connection.commit()
-
+conn.commit()
+conn.close()
